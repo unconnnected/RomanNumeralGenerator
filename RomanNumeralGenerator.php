@@ -101,22 +101,54 @@ final class RomanNumeralGeneratorImplementation implements RomanNumeralGenerator
         return $thousandString.$hundredString.$tenString.$unitString;
     }
     
+    private function compareResult($inputNumber, $expectedResult){
+        $romanNumerals = $this->generateString($inputNumber, false);
+        
+        $match = false;
+        $matchString = "FALSE";
+        if($romanNumerals == $expectedResult){
+            $match = true;        
+        }
+        
+        if($match)
+            $matchString = "TRUE";
+        
+        return "Number: ".(string) $inputNumber." Expected Result: ".$expectedResult." Actual Result: ".$romanNumerals." Matching: ".$matchString." <br />";
+    }
+    
     public function generateTest(){
         echo "Test Numbers From Wikipedia:"."<br />";
-        echo "39: ".$this->generateString(39, false)."<br />";      //XXXIX
-        echo "246: ".$this->generateString(246, false)."<br />";    //CCXLVI
-        echo "421: ".$this->generateString(421, false)."<br />";    //CDXXI
-        echo "160: ".$this->generateString(160, false)."<br />";    //CLX
+        echo $this->compareResult(39, "XXXIX");
+        echo $this->compareResult(246, "CCXLVI");
+        echo $this->compareResult(421, "CDXXI");
+        echo $this->compareResult(160, "CLX");
         
-        echo "207: ".$this->generateString(207, false)."<br />";    //CCVII
-        echo "1066: ".$this->generateString(1066, false)."<br />";  //MLXVI
+        echo $this->compareResult(207, "CCVII");
+        echo $this->compareResult(1066, "MLXVI");
         
-        echo "1776: ".$this->generateString(1776, false)."<br />";  //MDCCLXXVI
-        echo "1954: ".$this->generateString(1954, false)."<br />";  //MCMLIV
-        echo "1990: ".$this->generateString(1990, false)."<br />";  //MCMXC
-        echo "2014: ".$this->generateString(2014, false)."<br />";  //MMXIV
-        echo "2019: ".$this->generateString(2019, false)."<br />";  //MMXIX
-        echo "3999: ".$this->generateString(3999, false)."<br />";  //MMMCMXCIX
+        echo $this->compareResult(1776, "MDCCLXXVI");
+        echo $this->compareResult(1954, "MCMLIV");
+        echo $this->compareResult(1990, "MCMXC");
+        echo $this->compareResult(2014, "MMXIV");
+        echo $this->compareResult(2019, "MMXIX");
+        echo $this->compareResult(3999, "MMMCMXCIX");
+        
+        /**
+            echo "39: ".$this->generateString(39, false)."<br />";      //XXXIX
+            echo "246: ".$this->generateString(246, false)."<br />";    //CCXLVI
+            echo "421: ".$this->generateString(421, false)."<br />";    //CDXXI
+            echo "160: ".$this->generateString(160, false)."<br />";    //CLX
+
+            echo "207: ".$this->generateString(207, false)."<br />";    //CCVII
+            echo "1066: ".$this->generateString(1066, false)."<br />";  //MLXVI
+
+            echo "1776: ".$this->generateString(1776, false)."<br />";  //MDCCLXXVI
+            echo "1954: ".$this->generateString(1954, false)."<br />";  //MCMLIV
+            echo "1990: ".$this->generateString(1990, false)."<br />";  //MCMXC
+            echo "2014: ".$this->generateString(2014, false)."<br />";  //MMXIV
+            echo "2019: ".$this->generateString(2019, false)."<br />";  //MMXIX
+            echo "3999: ".$this->generateString(3999, false)."<br />";  //MMMCMXCIX
+         */
     }
     
     //Check number is valid
