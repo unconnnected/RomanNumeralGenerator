@@ -107,12 +107,10 @@ final class RomanNumeralGeneratorImplementation implements RomanNumeralGenerator
         $match = false;
         $matchString = "FALSE";
         if($romanNumerals == $expectedResult){
-            $match = true;        
+            $match = true;      
+            $matchString = "TRUE";  
         }
-        
-        if($match)
-            $matchString = "TRUE";
-        
+
         return "Number: ".(string) $inputNumber." Expected Result: ".$expectedResult." Actual Result: ".$romanNumerals." Matching: ".$matchString." <br />";
     }
     
