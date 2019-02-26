@@ -168,4 +168,4 @@ echo $romanNumberGenerator->generateTest();
 
 echo "<br />"."* * * * * * * * * * * * * * * * * * * *"."<br />";
 echo "Your Number: "."<br />";
-echo $romanNumberGenerator->generate(33);
+echo $romanNumberGenerator->generate(62);
